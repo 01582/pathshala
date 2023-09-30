@@ -68,6 +68,9 @@ dependencies:
   intl-messageformat:
     specifier: ^10.5.0
     version: 10.5.3
+  lucide:
+    specifier: ^0.279.0
+    version: 0.279.0
   next:
     specifier: 13.4.19
     version: 13.4.19(react-dom@18.2.0)(react@18.2.0)
@@ -2736,6 +2739,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+    dev: false
+
+  /lucide@0.279.0:
+    resolution: {integrity: sha512-Q8ijuBexemRGqLj9iH/c+uIg4H1LyTUAHS3NbpD5se8gRr1RY8446ZxlGlRk1hEVYULZqF7Bhw75SGVEkHKUTg==}
     dev: false
 
   /merge2@1.4.1:

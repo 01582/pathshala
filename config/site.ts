@@ -1,24 +1,24 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Next.js + NextUI",
-	description: "Make beautiful websites regardless of your design experience.",
+	name: "The PathShala",
+	description: "Perfect Tution Class, Kindergarten to Post Graduation ",
 	navItems: [
 		{
 			label: "Home",
 			href: "/",
 		},
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Classes",
+      href: "/class",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Dashboard",
+      href: "/dashboard",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Cource",
+      href: "/cource",
     },
     {
       label: "About",
@@ -35,16 +35,16 @@ export const siteConfig = {
 			href: "/dashboard",
 		},
 		{
-			label: "Projects",
-			href: "/projects",
+			label: "Class",
+			href: "/class",
 		},
 		{
-			label: "Team",
-			href: "/team",
+			label: "About",
+			href: "/about",
 		},
 		{
-			label: "Calendar",
-			href: "/calendar",
+			label: "Join",
+			href: "/join",
 		},
 		{
 			label: "Settings",
@@ -55,15 +55,15 @@ export const siteConfig = {
 			href: "/help-feedback",
 		},
 		{
-			label: "Logout",
-			href: "/logout",
+			label: "Sign-in",
+			href: "/sign-in",
 		},
 	],
 	links: {
-		github: "https://github.com/nextui-org/nextui",
-		twitter: "https://twitter.com/getnextui",
+		github: "/about",
+		twitter: "https://twitter.com/pawitsahare",
 		docs: "https://nextui.org",
 		discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev"
+    sponsor: "htp://about:blank"
 	},
 };
