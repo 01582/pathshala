@@ -58,7 +58,7 @@ export default function Home() {
 
 			<div className="flex gap-3">
 				<Link
-					isExternal
+					
 					as={NextLink}
 					href="/about"
 					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
@@ -66,7 +66,7 @@ export default function Home() {
 					Explore Classes
 				</Link>
 				<Link
-					isExternal
+					
 					as={NextLink}
 					className={buttonStyles({ variant: "bordered", radius: "lg" })}
 					href="/join"
