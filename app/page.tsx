@@ -60,7 +60,7 @@ export default function Home() {
 				<Link
 					isExternal
 					as={NextLink}
-					href={siteConfig.links.docs}
+					href="/about"
 					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
 				>
 					Explore Classes
