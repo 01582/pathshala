@@ -10,6 +10,8 @@ import { useState, useEffect } from 'react';
 import localFont from 'next/font/local'
 import { Work_Sans } from "next/font/google";
 
+  import {Kbd} from "@nextui-org/kbd";
+  
 // Font files can be colocated inside of `app`
 const Pixel = localFont({
   src: './pixel.ttf',
@@ -108,13 +110,22 @@ export default function Home() {
   </div>
 			<div className="mt-8 ">
 				<Snippet color="secondary" hideCopyButton variant="flat">
-					<span className="mt-4"
+					<span className="mt-4 select-none"
         >
                  ed init pathshala;
 					</span>
 				</Snippet>
 			</div>
-<div>
+			<br></br>
+<div className="rounded-lg ">
+
+ <Snippet color="primary" hideCopyButton variant="bordered">
+	<span className="mt-2 select-none">
+		
+		Website is  on building.
+	</span>
+ </Snippet>
+
 
 </div>
 
