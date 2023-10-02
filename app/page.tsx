@@ -54,20 +54,7 @@ export default function Home() {
 	  // Clear the interval when the component unmounts to prevent memory leaks
 	  return () => clearInterval(interval);
 	}, []);
-	const [open, setOpen] = useState(false)
 
-	// Toggle the menu when ⌘K is pressed
-	useEffect(() => {
-	  const down = (e) => {
-		if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-		  e.preventDefault()
-		  setOpen((open) => !open)
-		}
-	  }
-  
-	  document.addEventListener('keydown', down)
-	  return () => document.removeEventListener('keydown', down)
-	}, [])
 
 
 	return (
