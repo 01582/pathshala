@@ -122,7 +122,7 @@ export default function Home() {
  <Snippet color="primary" hideCopyButton variant="bordered">
 	<span className="mt-2 select-none">
 		
-		Website is  on building.
+		Website is  on building. <Kbd keys={["option"]}>S</Kbd>
 	</span>
  </Snippet>
 
