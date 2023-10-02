@@ -77,15 +77,16 @@ export default function Home() {
 
 			<div className="flex gap-3">
 				<Link
-					isExternal
+					
 					as={NextLink}
-					href={siteConfig.links.docs}
+					href="/join"
 					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
 				>
 					Explore Classes
 				</Link>
 				<Link
-					isExternal
+					
+		
 					as={NextLink}
 					className={buttonStyles({ variant: "bordered", radius: "lg",  })}
 					href="/join"
