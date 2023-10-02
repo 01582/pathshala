@@ -2,13 +2,25 @@
 import NextLink from "next/link";
 import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import { useState, useEffect } from 'react';
-import { Activity } from "lucide";
+import localFont from 'next/font/local'
+import { Work_Sans } from "next/font/google";
+
+// Font files can be colocated inside of `app`
+const Pixel = localFont({
+  src: './pixel.ttf',
+  display: 'swap',
+})
+
+const WorkSans = Work_Sans({
+	weight: '400',
+	subsets: ['latin'],
+	display: 'swap',
+  })
 export default function Home() {
 	const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -42,33 +54,51 @@ export default function Home() {
 	  // Clear the interval when the component unmounts to prevent memory leaks
 	  return () => clearInterval(interval);
 	}, []);
+	const [open, setOpen] = useState(false)
+
+	// Toggle the menu when ⌘K is pressed
+	useEffect(() => {
+	  const down = (e) => {
+		if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+		  e.preventDefault()
+		  setOpen((open) => !open)
+		}
+	  }
+  
+	  document.addEventListener('keydown', down)
+	  return () => document.removeEventListener('keydown', down)
+	}, [])
+
+
 	return (
+	 
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+         
 			<div className="inline-block max-w-lg text-center justify-center ">
-				<h1 className={title()}>PathShala&nbsp;</h1>
-				<h1 className={title({ color: "violet" })}>perfect&nbsp;</h1>
+				<h1  style={Pixel.style} className={title({className:"after:blur"})}>PathShala&nbsp;</h1>
+				<h1  className={title({ className:"animate-appearance-in duration-1000  ", color: "violet" })}>perfect&nbsp;</h1>
 				<br />
-				<h1 className={title()}>
+				<h1  className={title()}>
 					tution class
 				</h1>
-				<h2 className={subtitle({ class: "mt-4" })}>
+				<h2 style={WorkSans.style} className={subtitle({ class: "mt-4" })}>
 					7th-11th
 				</h2>
 			</div>
 
 			<div className="flex gap-3">
 				<Link
-					
+					isExternal
 					as={NextLink}
-					href="/about"
+					href={siteConfig.links.docs}
 					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
 				>
 					Explore Classes
 				</Link>
 				<Link
-					
+					isExternal
 					as={NextLink}
-					className={buttonStyles({ variant: "bordered", radius: "lg" })}
+					className={buttonStyles({ variant: "bordered", radius: "lg",  })}
 					href="/join"
 				>
 					<GithubIcon size={20} />
@@ -89,13 +119,19 @@ export default function Home() {
   </div>
 
   </div>
-			<div className="mt-8">
-				<Snippet hideSymbol hideCopyButton variant="flat">
-					<span>
-                     2023-10-01
+			<div className="mt-8 ">
+				<Snippet color="secondary" hideCopyButton variant="flat">
+					<span className="mt-4"
+        >
+                 ed init pathshala;
 					</span>
 				</Snippet>
 			</div>
+<div>
+
+</div>
+
 		</section>
+
 	);
 }
