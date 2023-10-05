@@ -243,17 +243,11 @@ export default function Home() {
 				</Snippet>
 			</div>
 			<br></br>
-<div className="rounded-lg ">
-
- <Snippet color="primary" hideCopyButton variant="bordered">
-	<span className="mt-2 select-none">
-		
-		Website is  on building. <Kbd keys={["option"]}>S</Kbd>
-	</span>
- </Snippet>
-
+<div>
+{renderPageContent()}
 
 </div>
+<Pagination loop showControls color="primary" total={3} page={currentPage} onChange={setCurrentPage} initialPage={1} />
 
 		</section>
 
