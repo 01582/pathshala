@@ -126,7 +126,7 @@ export default function Home() {
     <Card className="col-span-12 sm:col-span-4 h-[300px]">
       <CardHeader className="absolute z-10 top-1 flex-col !items-start">
         <p className="text-tiny text-white/60 uppercase font-bold">MATHEMETICS</p>
-        <h4 style={OneSans.style} className="text-white font-medium text-large">22/6</h4>
+        <h4 style={OneSans.style} className="text-white font-medium text-large">2"6</h4>
       </CardHeader>
       <Image
         removeWrapper
@@ -187,30 +187,29 @@ export default function Home() {
 	 
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
          
-			<div className="inline-block max-w-lg text-center justify-center ">
-				<h1  style={Pixel.style} className={title({className:"after:blur"})}>PathShala&nbsp;</h1>
-				<h1  className={title({ className:"animate-appearance-in duration-1000  ", color: "violet" })}>perfect&nbsp;</h1>
+			<div className="inline-block max-w-lg text-center justify-center select-none ">
+				<h1  style={Pixel.style} className={title({className:"after:blur"})}>ThePathShala&nbsp;</h1>
+				
 				<br />
-				<h1  className={title()}>
+				<h1 style={OneSans.style}  className={title({	className:"hover:animate-appearance-in"})}>
 					tution class
 				</h1>
 				<h2 style={WorkSans.style} className={subtitle({ class: "mt-4" })}>
-					7th-11th
+				Kindergarten to Post Graduation
 				</h2>
 			</div>
 
 			<div className="flex gap-3">
 				<Link
-					
+					isExternal
 					as={NextLink}
-					href="/join"
+					href={siteConfig.links.docs}
 					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
 				>
 					Explore Classes
 				</Link>
 				<Link
-					
-		
+					isExternal
 					as={NextLink}
 					className={buttonStyles({ variant: "bordered", radius: "lg",  })}
 					href="/join"
@@ -238,16 +237,15 @@ export default function Home() {
 				<Snippet color="secondary" hideCopyButton variant="flat">
 					<span className="mt-4 select-none"
         >
-                                  ed init the-pathshala.
+                 ed init pathshala;
 					</span>
 				</Snippet>
 			</div>
-			<br></br>
-<div>
-{renderPageContent()}
-
-</div>
-<Pagination loop showControls color="primary" total={3} page={currentPage} onChange={setCurrentPage} initialPage={1} />
+			<div>
+				{renderPageContent()}
+			</div>
+	
+			<Pagination loop showControls color="primary" total={3} page={currentPage} onChange={setCurrentPage} initialPage={1} />
 
 		</section>
 
