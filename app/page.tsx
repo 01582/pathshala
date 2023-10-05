@@ -64,14 +64,13 @@ export default function Home() {
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
          
 			<div className="inline-block max-w-lg text-center justify-center ">
-				<h1  style={Pixel.style} className={title({className:"after:blur"})}>PathShala&nbsp;</h1>
-				<h1  className={title({ className:"animate-appearance-in duration-1000  ", color: "violet" })}>perfect&nbsp;</h1>
-				<br />
+				<h1  style={Pixel.style} className={title({className:"duration-1000 animate-appearance-in"})}>ThePathShala&nbsp;</h1>
+						<br />
 				<h1  className={title()}>
-					tution class
+					tution classes
 				</h1>
 				<h2 style={WorkSans.style} className={subtitle({ class: "mt-4" })}>
-					7th-11th
+					KG-PG
 				</h2>
 			</div>
 
@@ -113,7 +112,7 @@ export default function Home() {
 				<Snippet color="secondary" hideCopyButton variant="flat">
 					<span className="mt-4 select-none"
         >
-                 ed init pathshala;
+                                  ed init the-pathshala.
 					</span>
 				</Snippet>
 			</div>
@@ -123,7 +122,7 @@ export default function Home() {
  <Snippet color="primary" hideCopyButton variant="bordered">
 	<span className="mt-2 select-none">
 		
-		Website is  on building. <Kbd keys={["option"]}>S</Kbd>
+		Landing page will posted on 23:59 <Kbd keys={["option"]}>S</Kbd>
 	</span>
  </Snippet>
  
