@@ -123,7 +123,7 @@ export default function Home() {
         </Button>
       </CardFooter>
     </Card>
-    <Card className="col-span-12 sm:col-span-4 h-[0px]">
+    <Card className="col-span-12 sm:col-span-4 h-[300px]">
       <CardHeader className="absolute z-10 top-1 flex-col !items-start">
         <p className="text-tiny text-white/60 uppercase font-bold">MATHEMETICS</p>
         <h4 style={OneSans.style} className="text-white font-medium text-large">22/6</h4>
