@@ -15,6 +15,10 @@ import { Button } from "@nextui-org/button";
 import {Skeleton} from "@nextui-org/skeleton";
 import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/card";
 import {Divider} from "@nextui-org/divider";
+import {Textarea} from "@nextui-org/input";
+import { EditDocumentIcon } from "@/components/EditIcon";
+import { DeleteDocumentIcon } from "@/components/DeleteIcon";
+import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
 import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";
 // Font files can be colocated inside of `app`
 const Pixel = localFont({
@@ -35,13 +39,22 @@ const WorkSans = Work_Sans({
 	src: "franklin.ttf",
 	display: 'auto'
   })
+
+  const Caveat = localFont({
+    src: 'Caveat.ttf',
+    display: 'swap'
+  })
 export default function Home() {
 	const [currentTime, setCurrentTime] = useState(new Date());
 	const [currentPage, setCurrentPage] = React.useState(1);
 
 	const texts = ['Light', 'Spectrum', 'Quantization'];
   const [currentText, setCurrentText] = useState(texts[0]);
-
+  const [isLoaded, setIsLoaded] = React.useState(false);
+  const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
+  const toggleLoad = () => {
+    setIsLoaded(true)
+  };
   useEffect(() => {
     const intervalId = setInterval(() => {
       // Change the text every 5 seconds
@@ -90,8 +103,8 @@ export default function Home() {
 			<div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8">
 			<Card className="col-span-12 sm:col-span-4 h-[300px]">
       <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-        <p className="animate-appearance-in text-tiny text-white/60 uppercase font-bold">Science</p>
-        <h4   style={LibreFranklin.style} className="text-white animate-appearance-in font-medium text-large">Behind the {currentText} </h4>
+        <p className="animate-appearance-in text-tiny text-white/60 uppercase font-bold animate-tpe">Science</p>
+        <h4   style={LibreFranklin.style} className="text-white animate-appearance-in hover:animate-type-reverse font-medium text-large">Behind the {currentText} </h4>
       </CardHeader>
 	  <Image
 	    isBlurred
@@ -134,28 +147,73 @@ export default function Home() {
         className="z-0 w-full h-full object-cover "
         src="/maths.jpg"
       />
+   
     </Card>
 
 			</div>
 			</div>);
 		  case 2:
-			return (<div>
-				 <Card className="w-[200px] space-y-5 p-4" radius="lg">
-      <Skeleton className="rounded-lg">
-        <div className="h-24 rounded-lg bg-default-300"></div>
-      </Skeleton>
-      <div className="space-y-3">
-        <Skeleton className="w-3/5 rounded-lg">
-          <div className="h-3 w-3/5 rounded-lg bg-default-200"></div>
+			return (
+        
+        <div className="flex flex-col gap-3">
+         <Card className="w-[200px] space-y-5 p-4" radius="lg">
+        <Skeleton isLoaded={isLoaded} className="rounded-lg">
+          <div className="h-24 w-full rounded-lg ">
+          <Image
+            src="/dd.jpg"
+            className="w-64 float-left aspect-[1/1]  rounded-lg shadow-lg object-cover object-center mb-0 mr-6 "
+            />
+          </div>
         </Skeleton>
-        <Skeleton className="w-4/5 rounded-lg">
-          <div className="h-3 w-4/5 rounded-lg bg-default-200"></div>
-        </Skeleton>
-        <Skeleton className="w-2/5 rounded-lg">  
-          <div className="h-3 w-2/5 rounded-lg bg-default-300"></div>
-        </Skeleton>
-      </div>
-    </Card>
+        <div className="space-y-3">
+          <Skeleton isLoaded={isLoaded} className="rounded-md ">
+            
+              <div className="antialiased bg-transparent">
+                <h1 style={Caveat.style}  className="selection-none">ThePathShala -2022</h1>
+                
+              </div>
+        
+          </Skeleton>
+          
+          <Skeleton isLoaded={isLoaded} className=" bg-stone-50">
+            <div className=" w-full ">
+            <Textarea
+      isReadOnly
+      variant="bordered"
+      labelPlacement="outside"
+  
+      defaultValue="ThePathShala is tution classes started in December 2022 for science & maths."
+      className="max-w-xs"
+    />
+            </div>
+          </Skeleton>
+
+     </div>
+     <Dropdown >
+      <DropdownTrigger>
+        <Button 
+          variant="bordered" 
+          onFocus={toggleLoad}
+        >
+          {isLoaded ? "More" : "Focus on Me."} 
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Static Actions" disabledKeys={["edit", "delete"]}>
+        <DropdownItem  startContent={<GithubIcon className={iconClasses}/>} key="login">Join</DropdownItem>
+       
+        <DropdownItem startContent={<EditDocumentIcon className={iconClasses}/>} key="edit">Edit content</DropdownItem>
+        <DropdownItem  startContent={<DeleteDocumentIcon className={iconClasses} />} key="delete" className="text-danger" color="danger">
+          Delete content
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+     
+     </Card>
+
+    
+   
+    
+
 			</div>);
 		  case 3:
 			return (<div>
@@ -184,8 +242,8 @@ export default function Home() {
 
 
 	return (
-	 
-		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+
+		<section className="scroll-smooth flex flex-col items-center justify-center gap-4 py-8 md:py-10">
          
 			<div className="inline-block max-w-lg text-center justify-center select-none ">
 				<h1  style={Pixel.style} className={title({className:"after:blur"})}>ThePathShala&nbsp;</h1>
@@ -224,7 +282,7 @@ export default function Home() {
 	<div className="absolute insert-0 bg-pink-600 rounded-lg blur">
 	{sequence}
 	</div>
-   <button className="relative px-7 py-4 bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600">
+   <button className="select-none  relative px-7 py-4 bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600">
 	<span className="pr-6  text-gray-100">Comming Soon</span>
 	<span className=" pl-6 text-indigo-400">{formattedTime} </span>
   </button>
