@@ -252,12 +252,10 @@ export default function Home() {
      </Card>
 
     <Divider className="my-4"/>
-    <VerticalFade
-        side="top"
-        style={{
-          height: 150,
-        }}
-      />
+  
+      <div aria-hidden className="verticalFade" data-side={top} style={{
+        height: 150
+      }} />
           
           
 
@@ -310,13 +308,13 @@ export default function Home() {
       style?: React.CSSProperties;
     }
 
-    function VerticalFade({ side, ...props }: VerticalFadeProps) {
+    function VerticalFade({ side, style, ...props }: VerticalFadeProps) {
       return (
         <div aria-hidden className="verticalFade" data-side={side} {...props} />
       );
     }
     
-    function HorizontalFade({ side, ...props }: VerticalFadeProps) {
+    function HorizontalFade({ side, style,  ...props }: VerticalFadeProps) {
       return (
         <div aria-hidden className="horizontalFade" data-side={side} {...props} />
       );
