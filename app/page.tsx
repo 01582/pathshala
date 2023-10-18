@@ -303,19 +303,24 @@ export default function Home() {
 			return <p>No content available for this page</p>;
 		}
 	  };
+    interface VerticalFadeProps{
+      side:any,
+      variant: any,
+      direction: any
+    }
 
-    function VerticalFade({ side, ...props }) {
+    function VerticalFade({ side, ...props }: VerticalFadeProps) {
       return (
         <div aria-hidden className="verticalFade" data-side={side} {...props} />
       );
     }
     
-    function HorizontalFade({ side, ...props }) {
+    function HorizontalFade({ side, ...props }: VerticalFadeProps) {
       return (
         <div aria-hidden className="horizontalFade" data-side={side} {...props} />
       );
     }
-    function Line({ variant, direction, ...props }) {
+    function Line({ variant, direction, ...props }: VerticalFadeProps) {
       return (
         <div
           aria-hidden
