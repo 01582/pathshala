@@ -2,3 +2,218 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --puprle: rgb(123,31,162);
+    --violet: rgb(103,58,183);
+    --pink: rgb(244, 143, 177);
+    --primary-rgb: rgb(97, 130, 100);
+    --body-bg: #0e1416;
+    --grid-color: rgba(#07cb79, 0.3);
+    --grid-height: 600px;
+    --cyan: hsl(180, 100%, 50%);
+}
+@keyframes pan-overlay {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 0% -100;
+    }
+    
+}
+
+@layer utilities{
+    .animation-delay-2000{
+
+        animation-delay: 2s;
+
+    }
+    .animation-delay-4000{
+
+        animation-delay: 4s;
+        
+    }
+}
+@keyframes background-pan{
+    from{
+        background-position: 0% center;
+
+    }
+    to{
+        background-position: -200% center;
+    }
+}
+.magic-text{
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(to right,
+    var(--puprle),
+    var(--violet),
+    var(--pink)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    background-size: 200%;
+}
+
+
+
+    .screen {
+        width: 160px;
+       
+        border: 3px solid rgb(var(--primary-rgb) / 80%);
+        aspect-ratio: 10 / 16;
+        border-radius: 1rem;
+        background-color: rgb(var(--primary-rgb) / 15%);
+        ;
+      }
+.screen-overlay{
+   
+}
+.screen-image{
+background-image: url("/public/box.jpg");
+height: 100%;
+width: 100%;
+background-position: center;
+background-size: 300% ;
+}
+.card-i {
+    display: flex;
+flex-direction: column;
+width: 200px;
+height: 300px;
+margin: 10px;
+border: 1px solid black;
+border-radius: 5px;
+
+}
+
+.grs {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+      background-color: #434343;
+      background-image:linear-gradient(#434343, #282828);
+
+      opacity: 60%;
+
+    border-radius: 40%;
+  }
+
+  .ggg{
+   
+        background-color: transparent;
+        background-image:       linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+      height:100%;
+      background-size:50px 50px;
+
+    
+  }
+
+  .verticalFade {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  width: 100%;
+  left: 0;
+  z-index: 1;
+  backdrop-filter: blur(1px);
+  will-change: transform;
+
+  &[data-side="top"] {
+    top: 0;
+    background: linear-gradient(to top, transparent, var(--gray1));
+    mask-image: linear-gradient(to bottom, var(--gray1) 25%, transparent);
+  }
+
+  &[data-side="bottom"] {
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, var(--gray1));
+    mask-image: linear-gradient(to top, var(--gray1) 25%, transparent);
+  }
+}
+
+
+.horizontalFade {
+    ---fadeColor: rgba(255, 255, 255, 0.00001);
+    width: 20vw;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    opacity: 1;
+    min-width: 120px;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+    user-select: none;
+  
+    &[data-side="left"] {
+      background: linear-gradient(to left, var(---fadeColor), var(--gray1));
+      mask-image: linear-gradient(to right, var(--gray1), var(---fadeColor));
+      left: -24px;
+    }
+  
+    &[data-side="right"] {
+      background: linear-gradient(to right, var(---fadeColor), var(--gray1));
+      mask-image: linear-gradient(to left, var(--gray1), var(---fadeColor));
+      right: 0;
+    }
+  }
+  
+  .line {
+    position: absolute;
+    z-index: 2;
+  
+    &[data-variant="defined"] {
+      opacity: 0.8;
+    }
+  
+    &[data-variant="subtle"] {
+      opacity: 0.6;
+    }
+  
+    &[data-direction="horizontal"] {
+      height: 1px;
+      width: 500vw;
+      background: var(--cyan);
+      transform: translateX(-50%);
+      left: 50%;
+    }
+  
+    &[data-direction="vertical"] {
+      width: 1px;
+      height: 500vw;
+      background: linear-gradient(to bottom, var(--cyan) 0%, transparent 100%),
+    }
+  }
+
+
+
+
+.grida {
+	width: 100%;
+	height: var(--grid-height);
+	overflow: hidden;
+	perspective: (600px * .75);
+}
+.grid-fade {	
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1;
+	background: radial-gradient(ellipse at 50% 50%,
+		rgba(body-bg, 0%) 0%,
+		rgba(body-bg, 100%) 80%);
+}
+.grid-lines {
+	width: 100%;
+	height: 200%;
+	background-image:
+		linear-gradient(to right, var(--grid-color) 1px, transparent 0),
+		linear-gradient(to bottom, var(--grid-color) 1px, transparent 0);
+	background-size: 45px 30px;
+	background-repeat: repeat;
+	transform-origin: 100% 0 0;
+	animation: play 15s linear infinite;
+}
+

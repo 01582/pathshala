@@ -11,6 +11,9 @@ dependencies:
   '@nextui-org/card':
     specifier: ^2.0.21
     version: 2.0.21(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.3)
+  '@nextui-org/chip':
+    specifier: ^2.0.21
+    version: 2.0.21(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.3)
   '@nextui-org/code':
     specifier: 2.0.16
     version: 2.0.16(react@18.2.0)(tailwindcss@3.3.3)
@@ -416,7 +419,7 @@ packages:
       react: '>=18'
     dependencies:
       '@nextui-org/system': 2.0.10(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.3)
-      '@react-aria/utils': 3.20.0(react@18.2.0)
+      '@react-aria/utils': 3.21.0(react@18.2.0)
       '@react-stately/collections': 3.10.1(react@18.2.0)
       '@react-types/overlays': 3.8.2(react@18.2.0)
       '@react-types/shared': 3.20.0(react@18.2.0)
@@ -432,7 +435,7 @@ packages:
       react: '>=18'
     dependencies:
       '@nextui-org/system': 2.0.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.3)
-      '@react-aria/utils': 3.20.0(react@18.2.0)
+      '@react-aria/utils': 3.21.0(react@18.2.0)
       '@react-stately/collections': 3.10.1(react@18.2.0)
       '@react-types/overlays': 3.8.2(react@18.2.0)
       '@react-types/shared': 3.20.0(react@18.2.0)
@@ -480,9 +483,9 @@ packages:
       '@nextui-org/theme': 2.1.9(tailwindcss@3.3.3)
       '@nextui-org/use-aria-button': 2.0.5(react@18.2.0)
       '@react-aria/button': 3.8.2(react@18.2.0)
-      '@react-aria/focus': 3.14.1(react@18.2.0)
-      '@react-aria/interactions': 3.18.0(react@18.2.0)
-      '@react-aria/utils': 3.20.0(react@18.2.0)
+      '@react-aria/focus': 3.14.2(react@18.2.0)
+      '@react-aria/interactions': 3.19.0(react@18.2.0)
+      '@react-aria/utils': 3.21.0(react@18.2.0)
       '@react-types/button': 3.8.0(react@18.2.0)
       '@react-types/shared': 3.20.0(react@18.2.0)
       react: 18.2.0
@@ -511,6 +514,26 @@ packages:
       react: 18.2.0
     transitivePeerDependencies:
       - framer-motion
+      - react-dom
+      - tailwindcss
+    dev: false
+
+  /@nextui-org/chip@2.0.21(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-z5akLSpElF/j0b13hCywkRGWbI+9PEgawYMktLUnnokXRoUH7XOaq3XoP4Fa5rzBt4ajVButtXwxCsXc3izspQ==}
+    peerDependencies:
+      react: '>=18'
+    dependencies:
+      '@nextui-org/react-utils': 2.0.9(react@18.2.0)
+      '@nextui-org/shared-icons': 2.0.4(react@18.2.0)
+      '@nextui-org/shared-utils': 2.0.3(react@18.2.0)
+      '@nextui-org/system': 2.0.10(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.3)
+      '@nextui-org/theme': 2.1.9(tailwindcss@3.3.3)
+      '@react-aria/focus': 3.14.2(react@18.2.0)
+      '@react-aria/interactions': 3.19.0(react@18.2.0)
+      '@react-aria/utils': 3.21.0(react@18.2.0)
+      '@react-types/checkbox': 3.5.1(react@18.2.0)
+      react: 18.2.0
+    transitivePeerDependencies:
       - react-dom
       - tailwindcss
     dev: false
@@ -993,8 +1016,8 @@ packages:
       react: '>=18'
     dependencies:
       '@nextui-org/system-rsc': 2.0.6(react@18.2.0)(tailwindcss@3.3.3)
-      '@react-aria/i18n': 3.8.2(react@18.2.0)
-      '@react-aria/overlays': 3.17.0(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/i18n': 3.8.3(react@18.2.0)
+      '@react-aria/overlays': 3.18.0(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     transitivePeerDependencies:
       - react-dom
@@ -1816,7 +1839,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-aria/utils': 3.20.0(react@18.2.0)
+      '@react-aria/utils': 3.21.0(react@18.2.0)
       '@react-types/label': 3.8.0(react@18.2.0)
       '@react-types/shared': 3.20.0(react@18.2.0)
       '@swc/helpers': 0.5.2
@@ -1961,9 +1984,9 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-aria/focus': 3.14.1(react@18.2.0)
-      '@react-aria/interactions': 3.18.0(react@18.2.0)
-      '@react-aria/utils': 3.20.0(react@18.2.0)
+      '@react-aria/focus': 3.14.2(react@18.2.0)
+      '@react-aria/interactions': 3.19.0(react@18.2.0)
+      '@react-aria/utils': 3.21.0(react@18.2.0)
       '@react-stately/toggle': 3.6.2(react@18.2.0)
       '@react-types/checkbox': 3.5.1(react@18.2.0)
       '@react-types/shared': 3.20.0(react@18.2.0)
@@ -1977,9 +2000,9 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-aria/focus': 3.14.1(react@18.2.0)
-      '@react-aria/interactions': 3.18.0(react@18.2.0)
-      '@react-aria/utils': 3.20.0(react@18.2.0)
+      '@react-aria/focus': 3.14.2(react@18.2.0)
+      '@react-aria/interactions': 3.19.0(react@18.2.0)
+      '@react-aria/utils': 3.21.0(react@18.2.0)
       '@react-stately/tooltip': 3.4.4(react@18.2.0)
       '@react-types/shared': 3.20.0(react@18.2.0)
       '@react-types/tooltip': 3.4.4(react@18.2.0)
@@ -2184,7 +2207,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.20.0(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 

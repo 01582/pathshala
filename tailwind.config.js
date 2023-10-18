@@ -21,6 +21,7 @@ module.exports = {
 				title: "title 3s ease-out forwards",
 				"fade-left": "fade-left 3s ease-in-out forwards",
 				"fade-right": "fade-right 3s ease-in-out forwards",
+        backanim: "backanim 7s infinite"
 			},
       keyframes: {
         type: {
@@ -36,6 +37,23 @@ module.exports = {
           '85%, 90%': { width: '9ch' },
           '95%': { width: '10ch' },
         },
+
+        backanim: {
+          "0%": {
+            transform: " translate(0px, 0px) scale(1)",
+
+          },
+          "35": {
+            transform: " translate(30px, -50px) scale(1.1)"
+          },
+          "66%": {
+            transform: "  translate(-20px, 20px) scale(0.9)",
+
+          },
+          "100": {
+            transform: "   translate(0px, 0px) scale(1)"
+          }
+        }
       },
 
     },

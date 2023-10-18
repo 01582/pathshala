@@ -158,6 +158,30 @@ export const HeartFilledIcon = ({
 		/>
 	</svg>
 );
+
+export const TinYBird = (props: IconSvgProps) => (
+
+	<svg
+		aria-hidden="true"
+		fill="none"
+		focusable="false"
+		height="1em"
+		role="presentation"
+		viewBox="0 0 24 24"
+		width="1em"
+		{...props}
+	> 
+      
+	  <path
+			d="M16 7h.01"
+			stroke="currentColor"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			strokeWidth="2"
+		/>
+		<path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/>
+    </svg>
+)
 export const UserIcon = (props: IconSvgProps) => (
 	<svg
 		aria-hidden="true"
