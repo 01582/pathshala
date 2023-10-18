@@ -307,6 +307,7 @@ export default function Home() {
       side:any,
       variant: any,
       direction: any
+      style?: React.CSSProperties;
     }
 
     function VerticalFade({ side, ...props }: VerticalFadeProps) {
