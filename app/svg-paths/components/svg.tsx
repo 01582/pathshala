@@ -28,15 +28,8 @@ export type Config = {
   };
 };
 
-const SvgContext = React.createContext<{
-  size: number;
-  config: Config;
-  getRelative: (value: number) => number;
-  useRelativeMotionValue: (value: number) => MotionValue<number>;
-  panX: MotionValue<number>;
-  panY: MotionValue<number>;
-  container: SVGSVGElement;
-}>(null);
+
+const SvgContext = React.createContext<any>(null);
 
 export const useSvgContext = () => {
   return React.useContext(SvgContext);
