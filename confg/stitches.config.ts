@@ -48,14 +48,15 @@ const SPACING = {
   96: "24rem",
 } as const;
 
-const rename = (from, to, obj) => {
-  const newObj = {};
+const rename = (from: string, to: string, obj: Record<string, any>): Record<string, any> => {
+  const newObj: Record<string, any> = {};
   for (const key in obj) {
     const [, num] = key.split(from);
     newObj[`${to}${num}`] = obj[key];
   }
   return newObj;
 };
+
 
 export const baseTheme = {
   colors: {
