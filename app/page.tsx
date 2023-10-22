@@ -139,10 +139,7 @@ export default function Home() {
 		  case 1:
 			return (<div>
 						
-            <div aria-hidden className="verticalFade" data-side={top}  style={{
-        height: 150,
-        zIndex: 3
-      }} />
+       
 			<Divider className="my-4" />
 			<div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8">
 			<Card className="col-span-12 sm:col-span-4 h-[300px]">
@@ -264,9 +261,7 @@ export default function Home() {
 
     <Divider className="my-4"/>
   
-      <div aria-hidden className="verticalFade" data-side={top} style={{
-        height: 150
-      }} />
+      
           
           
 
