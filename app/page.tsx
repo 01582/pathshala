@@ -20,9 +20,10 @@ import {Divider} from "@nextui-org/divider";
 import {Textarea} from "@nextui-org/input";
 import { EditDocumentIcon } from "@/components/EditIcon";
 import { DeleteDocumentIcon } from "@/components/DeleteIcon";
-import { SvgPaths } from "@/components/home/SvgPaths";
+
 import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
 import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";
+import { FramerMagicMotion } from "@/components/home/FramerMagicMotion";
 // Font files can be colocated inside of `app`
 const Pixel = localFont({
   src: './pixel.ttf',
@@ -195,10 +196,9 @@ export default function Home() {
 
 			</div>
       <div className=""  onClick={() => toast.success(<div><p style={Pixel.style}>G E O M E T R Y</p></div>
-      
+    
       )}>
-             <SvgPaths />
-          
+        <FramerMagicMotion/>
       </div>
 			</div>);
 		  case 2:
