@@ -41,6 +41,7 @@
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "framer-motion": "^10.16.2",
+    "immer": "^10.0.3",
     "inspx": "0.0.1-alpha.6",
     "intl-messageformat": "^10.5.0",
     "lucide": "^0.279.0",
