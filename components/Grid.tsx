@@ -88,7 +88,7 @@ export const GridBackground = styled(motion.div, {
   },
 });
 
-export const GridOverflowBox = ({ children }) => (
+export const GridOverflowBox: React.FC<{ children: any }> = ({ children }) => (
   <GridBackground>
     <ContentWrapper>
       {children}
