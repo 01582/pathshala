@@ -2,6 +2,7 @@
 import NextLink from "next/link";
 import React from "react";
 import { Link } from "@nextui-org/link";
+import { Toaster, toast } from 'sonner'
 import { Snippet } from "@nextui-org/snippet";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
@@ -19,6 +20,7 @@ import {Divider} from "@nextui-org/divider";
 import {Textarea} from "@nextui-org/input";
 import { EditDocumentIcon } from "@/components/EditIcon";
 import { DeleteDocumentIcon } from "@/components/DeleteIcon";
+import { SvgPaths } from "@/components/home/SvgPaths";
 import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
 import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";
 // Font files can be colocated inside of `app`
@@ -136,7 +138,10 @@ export default function Home() {
 		  case 1:
 			return (<div>
 						
-		
+            <div aria-hidden className="verticalFade" data-side={top}  style={{
+        height: 150,
+        zIndex: 3
+      }} />
 			<Divider className="my-4" />
 			<div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8">
 			<Card className="col-span-12 sm:col-span-4 h-[300px]">
@@ -176,8 +181,8 @@ export default function Home() {
     </Card>
     <Card className="col-span-12 sm:col-span-4 h-[300px]">
       <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-        <p className="text-tiny text-white/60 uppercase font-bold">MATHEMETICS</p>
-        <h4 style={OneSans.style} className="text-white font-medium text-large">22/6</h4>
+        <p className="text-tiny text-white/60 uppercase font-bold">1-13th</p>
+        <h4 style={OneSans.style} className="text-white font-medium text-large">Mathemetic</h4>
       </CardHeader>
       <Image
         removeWrapper
@@ -189,6 +194,12 @@ export default function Home() {
     </Card>
 
 			</div>
+      <div className=""  onClick={() => toast.success(<div><p style={Pixel.style}>G E O M E T R Y</p></div>
+      
+      )}>
+             <SvgPaths />
+          
+      </div>
 			</div>);
 		  case 2:
 			return (
@@ -332,7 +343,7 @@ export default function Home() {
     }
 	return (
    <main>
-       
+       <Toaster  richColors/>
 		<section className="scroll-smooth flex flex-col items-center justify-center gap-4 py-8 md:py-10">
          
 
@@ -398,6 +409,11 @@ export default function Home() {
 			</div>
 			<div>
 				{renderPageContent()}
+    
+
+
+
+     
 			</div>
 	
 			<Pagination loop showControls color="primary" total={3} page={currentPage} onChange={setCurrentPage} initialPage={1} />

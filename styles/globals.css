@@ -12,6 +12,11 @@
     --grid-height: 600px;
     --cyan: hsl(180, 100%, 50%);
 }
+
+
+.custom_black{
+  color: rgb(22,22,22)
+}
 @keyframes pan-overlay {
     from {
         background-position: 0% 0%;
