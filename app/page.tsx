@@ -37,7 +37,10 @@ const OneSans = localFont({
 	src: './OneSans.ttf',
 	display: 'swap',
   })
-
+  const Satoshi = localFont({
+    src: './Satoshi.otf',
+    display: 'swap',
+    })
 const WorkSans = Work_Sans({
 	weight: '400',
 	subsets: ['latin'],
@@ -202,7 +205,9 @@ export default function Home() {
 			return (
         
         <div className="flex flex-col gap-3">
-         
+          <div aria-hidden className="verticalFade" data-side={top} style={{
+          height: 300,
+        }}/>
          <Card className="w-[200px] space-y-5 p-4" radius="lg">
         <Skeleton isLoaded={isLoaded} className="rounded-lg">
           <div className="h-24 w-full rounded-lg ">
@@ -266,15 +271,23 @@ export default function Home() {
           
 
     <div className="  cointain  leading-5     items-center justify-center  ">
-     <div className="">   <h1 style={TiltNeon.style} className=" text-lg text-center">TRUSTED & <span style={OneSans.style} className="magic-text ">
-       POWERED  
-        </span> BY </h1></div>
+     <div className="">   <h1 style={TiltNeon.style} className=" text-lg text-center">SECURED BY <span style={OneSans.style} className="magic-text ">
+       VERCEL
+
+        </span> WITH </h1></div>
         <br></br>
-        <div className="grid gap-4 grid-flow-row grid-cols-2  items-center justify-center">
-        {svgs[currentSVG]}
+       <div className="overflow-hidden whitespace-nowrap flex-wrap items-center justify-center gap-x-10 gap-y-6 md:flex">
+          <h1  className="hover:backdrop-blur-md" style={Satoshi.style}>1. Kinde</h1>
+          <h1 style={Satoshi.style}>2. Apace Kafka</h1>
+          <h3 style={Pixel.style}>3. Redis</h3>
+          <h4>  </h4>
+       </div>
+
+
+        
+        
     <br></br>
 
-    </div>
 
 
 

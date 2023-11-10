@@ -137,8 +137,11 @@ border-radius: 5px;
     mask-image: linear-gradient(to top, var(--gray1) 25%, transparent);
   }
 }
-
-
+.powered {
+ font-size: 58x;
+ backdrop-filter: blur(4px);
+ 
+}
 .horizontalFade {
     ---fadeColor: rgba(255, 255, 255, 0.00001);
     width: 20vw;
