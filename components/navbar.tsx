@@ -8,12 +8,10 @@ import {
 	NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
-import {Avatar} from "@nextui-org/avatar";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
-
+import {Avatar} from "@nextui-org/avatar"
 import { link as linkStyles } from "@nextui-org/theme";
 
 import { siteConfig } from "@/config/site";
@@ -31,7 +29,7 @@ import {
 
 import { Logo } from "@/components/icons";
 
-export const Navbar = async () => {
+export const Navbar = () => {
 	const searchInput = (
 		<Input
 			aria-label="Search"
@@ -52,27 +50,14 @@ export const Navbar = async () => {
 			type="search"
 		/>
 	);
-	const { isAuthenticated } = getKindeServerSession();
-    const {getUser} = getKindeServerSession();
-	const user = await getUser()
-	console.log(await getUser());
-	 return (
+
+	return (
 		<NextUINavbar maxWidth="xl" position="sticky">
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1 animate-fade-in" href="/">
-					{await isAuthenticated ? (
-  <>
-    <Avatar isBordered radius="full" src="https://designzonic.com/download/wp-content/uploads/2019/04/153.-Perspective-Letter-P-Concept-Logo.png" />
-    <p className="font-bold text-inherit text-edge-outline">{user.given_name}</p>
-  </>
-) : (
-  <>
-    <Logo />
-    <p className="font-bold text-inherit text-edge-outline">PS</p>
-  </>
-)}
-
+					<Avatar isBordered radius="full" src="https://i.pravatar.cc/150" />
+						<p className="font-bold text-inherit text-edge-outline ">PS</p>
 					</NextLink>
 				</NavbarBrand>
 				<ul className="hidden lg:flex gap-4 justify-start ml-2">
