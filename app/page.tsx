@@ -409,7 +409,7 @@ useEffect(() => {
               <>
               
               <h2 style={Pixel.style} className={subtitle({ class: "mt-4" })}>
-                Welcome! {user.user_name}
+                Welcome! {user?.user_name}
 				</h2>
               </>
             ) : (
