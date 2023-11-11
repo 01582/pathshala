@@ -56,7 +56,7 @@ export const Navbar = () => {
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1 animate-fade-in" href="/">
-					<Avatar isBordered radius="full" src="https://i.pravatar.cc/150" />
+					<Logo/>
 						<p className="font-bold text-inherit text-edge-outline ">PS</p>
 					</NextLink>
 				</NavbarBrand>

@@ -22,11 +22,10 @@ import {Divider} from "@nextui-org/divider";
 import {Textarea} from "@nextui-org/input";
 import { EditDocumentIcon } from "@/components/EditIcon";
 import { DeleteDocumentIcon } from "@/components/DeleteIcon";
-import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
+
 import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
 import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";
 import { FramerMagicMotion } from "@/components/home/FramerMagicMotion";
-import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 // Font files can be colocated inside of `app`
 const Pixel = localFont({
   src: './pixel.ttf',
@@ -58,42 +57,8 @@ const WorkSans = Work_Sans({
     src: 'Caveat.ttf',
     display: 'swap'
   })
-export default  function Home() {
-  const {
-    getAccessToken,
-    getBooleanFlag,
-    getFlag,
-    getIntegerFlag,
-    getOrganization,
-    getPermission,
-    getPermissions,
-    getStringFlag,
-    getUser,
-    getUserOrganizations,
-    isAuthenticated
-} = getKindeServerSession();
-interface User {
-  user_name: string;
-  // Add other properties as needed
-}
-const [user, setUser] = useState<User | null>(null);
-const [isAuthenticateda, setIsAuthenticateda] = useState(false);
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const userData = await getUser();
-      setUser(userData);
-      const authenticated = await isAuthenticated();
-      setIsAuthenticateda(authenticated);
-    } catch (error) {
-      console.error('Error fetching user:', error);
-    }
-  };
+export default function Home() {
 
-  fetchData();
-}, []); 
-
-  
   const [currentSVG, setCurrentSVG] = useState(0);
   const svgs = [
   (  <svg key="1" className="w-[109px] text-yankeesBlue" height="26" viewBox="0 0 109 26" width="109">
@@ -185,7 +150,7 @@ useEffect(() => {
 			<Card className="col-span-12 sm:col-span-4 h-[300px]">
       <CardHeader className="absolute z-10 top-1 flex-col !items-start">
         <p className="animate-appearance-in text-tiny text-white/60 uppercase font-bold animate-tpe">Science</p>
-        <h4   style={LibreFranklin.style} className="text-white animate-appearance-in hover:animate-type-reverse font-medium text-large"> Physics-Chemistry-Math </h4>
+        <h4   style={LibreFranklin.style} className="text-white animate-appearance-in hover:animate-type-reverse font-medium text-large">Behind the {currentText} </h4>
       </CardHeader>
 	  <Image
 	    isBlurred
@@ -405,49 +370,22 @@ useEffect(() => {
 				<h1 style={OneSans.style}  className={title({	className:"hover:animate-appearance-in"})}>
 					tution class
 				</h1>
-        {isAuthenticateda ? (
-              <>
-              
-              <h2 style={Pixel.style} className={subtitle({ class: "mt-4" })}>
-                Welcome! {user?.user_name}
-				</h2>
-              </>
-            ) : (
-              <>
-               
-               <h2 style={WorkSans.style} className={subtitle({ class: "mt-4" })}>
+				<h2 style={WorkSans.style} className={subtitle({ class: "mt-4" })}>
 				Kindergarten to Post Graduation
 				</h2>
-              </>
-            )}
-				
 			</div>
 
 			<div className="flex gap-3">
 				<Link
 			
 					as={NextLink}
-					href="/dashboard"
+					href="/join"
 					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
 				>
 					Explore Classes
 				</Link>
-        {isAuthenticateda ? (
-              <>
-              
-              <LogoutLink
-					
-            style={Satoshi.style}
-					className={buttonStyles({ variant: "bordered", radius: "lg",  })}
 				
-				>
-					<GithubIcon size={20} />
-					Logout
-				</LogoutLink>
-              </>
-            ) : (
-              <>
-                  <Dropdown>
+        <Dropdown>
       <DropdownTrigger>
       <Button
 					
@@ -459,17 +397,12 @@ useEffect(() => {
 				</Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        
         <DropdownItem key="new"><RegisterLink>Register</RegisterLink></DropdownItem>
         <DropdownItem key="copy"><LoginLink>Registered?</LoginLink></DropdownItem>
         
       </DropdownMenu>
     </Dropdown>
-               
-              </>
-            )}
-     
-  
+    
 
 			</div>
 			<br></br>
