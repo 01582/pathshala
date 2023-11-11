@@ -1,6 +1,6 @@
 "use client"
-import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 
+import {LoginLink, RegisterLink} from "@kinde-oss/kinde-auth-nextjs/components"
 import NextLink from "next/link";
 import React from "react";
 import { Link } from "@nextui-org/link";
@@ -402,6 +402,7 @@ export default function Home() {
         
       </DropdownMenu>
     </Dropdown>
+    <RegisterLink>Register</RegisterLink>
 
 			</div>
 			<br></br>
