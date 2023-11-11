@@ -65,5 +65,10 @@
   },
   "devDependencies": {
     "sass": "^1.69.0"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
