@@ -58,7 +58,7 @@ const WorkSans = Work_Sans({
     src: 'Caveat.ttf',
     display: 'swap'
   })
-export default async function Home() {
+export default  function Home() {
   const {
     getAccessToken,
     getBooleanFlag,
@@ -72,8 +72,27 @@ export default async function Home() {
     getUserOrganizations,
     isAuthenticated
 } = getKindeServerSession();
+interface User {
+  user_name: string;
+  // Add other properties as needed
+}
+const [user, setUser] = useState<User | null>(null);
+const [isAuthenticateda, setIsAuthenticateda] = useState(false);
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const userData = await getUser();
+      setUser(userData);
+      const authenticated = await isAuthenticated();
+      setIsAuthenticateda(authenticated);
+    } catch (error) {
+      console.error('Error fetching user:', error);
+    }
+  };
 
-  const user = await getUser();
+  fetchData();
+}, []); 
+
   
   const [currentSVG, setCurrentSVG] = useState(0);
   const svgs = [
@@ -386,7 +405,7 @@ export default async function Home() {
 				<h1 style={OneSans.style}  className={title({	className:"hover:animate-appearance-in"})}>
 					tution class
 				</h1>
-        {await isAuthenticated ? (
+        {isAuthenticateda ? (
               <>
               
               <h2 style={Pixel.style} className={subtitle({ class: "mt-4" })}>
@@ -413,7 +432,7 @@ export default async function Home() {
 				>
 					Explore Classes
 				</Link>
-        {await isAuthenticated ? (
+        {isAuthenticateda ? (
               <>
               
               <LogoutLink
