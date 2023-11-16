@@ -80,8 +80,8 @@ export const  LoginButton = () => {
                     </p>            
                     <p className='m-1 text-sm text-gray-400'>2. Your choices:
                     Access and update your information. <br></br>You can access and update your account information by logging into your account on the Services.
-Opt out of marketing communications. <br></br> You can opt out of receiving marketing emails from us by clicking on the "unsubscribe" link at the bottom of any marketing email you receive from us.
-Delete your account. You can delete your account by contacting us at support@pathshala.com
+Opt out of marketing communications. <br></br> You can opt out of receiving marketing emails from us by clicking on the unsubscribe link at the bottom of any marketing email you receive from us.
+Delete your account. You can delete your account by contacting us
                     </p>    
 
                     <p style={Satoshi.style} className='m-1 text-sm'>3. Data Security:
