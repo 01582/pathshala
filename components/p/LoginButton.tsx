@@ -89,7 +89,7 @@ Delete your account. You can delete your account by contacting us
 We take reasonable steps to protect your personal information from unauthorized access, use, disclosure, alteration, or destruction. However, no method of transmission over the Internet or method of electronic storage is 100% secure. Therefore, we cannot guarantee the absolute security of your personal information.
 
 </p>
-<Checkbox className='m-3' color='secondary'  isSelected={isSelected} onValueChange={setIsSelected} defaultSelected>I agree</Checkbox>
+<Checkbox className='m-3' color='secondary'  isSelected={isSelected} onValueChange={setIsSelected} defaultSelected>I agree with terms and conditions</Checkbox>
 
               </ModalBody>
               <ModalFooter>
