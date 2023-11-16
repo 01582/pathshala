@@ -60,6 +60,14 @@
     white-space: nowrap;
     background-size: 200%;
 }
+.anio{
+  text-decoration-color: #EDEDED;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-line-clamp: (48px, 5vw, 72px);
+
+}
 
 
 

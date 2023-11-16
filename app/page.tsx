@@ -1,9 +1,10 @@
 "use client"
 
-import {LoginLink, RegisterLink} from "@kinde-oss/kinde-auth-nextjs/components"
-import NextLink from "next/link";
+
 import React from "react";
+import NextLink from "next/link";
 import { Link } from "@nextui-org/link";
+import { LoginButton } from "@/components/p/LoginButton";
 import { Toaster, toast } from 'sonner'
 import { Snippet } from "@nextui-org/snippet";
 import { button as buttonStyles } from "@nextui-org/theme";
@@ -384,25 +385,10 @@ export default function Home() {
 				>
 					Explore Classes
 				</Link>
+
+        <LoginButton/>
 				
-        <Dropdown>
-      <DropdownTrigger>
-      <Button
-					
-					className={buttonStyles({ variant: "bordered", radius: "lg",  })}
-				
-				>
-					<GithubIcon size={20} />
-					Join
-				</Button>
-      </DropdownTrigger>
-      <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="new"><RegisterLink>Register</RegisterLink></DropdownItem>
-        <DropdownItem key="copy"><LoginLink>Registered?</LoginLink></DropdownItem>
-        
-      </DropdownMenu>
-    </Dropdown>
-    
+      
 
 			</div>
 			<br></br>
