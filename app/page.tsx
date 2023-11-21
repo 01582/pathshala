@@ -89,7 +89,19 @@ export default function Home() {
     };
   }, []);
 
+  const [authStatus, setAuthStatus] = useState(null);
 
+  const checkApi = async () => {
+    try {
+      const response = await fetch('/api/verify');
+      const data = await response.json();
+
+      // Assuming the API response has a property "auth"
+      setAuthStatus(data.auth);
+    } catch (error) {
+      console.error('Error fetching API:', error);
+    }
+  };
 
     
 	const [currentTime, setCurrentTime] = useState(new Date());
@@ -102,6 +114,8 @@ export default function Home() {
   const toggleLoad = () => {
     setIsLoaded(true)
   };
+
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       // Change the text every 5 seconds

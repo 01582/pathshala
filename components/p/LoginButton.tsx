@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import { useRouter } from 'next/navigation';
 import {  Modal,   ModalContent,   ModalHeader,   ModalBody,   ModalFooter} from "@nextui-org/modal";
 import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/modal';
@@ -9,7 +11,8 @@ import { useState, useEffect } from 'react';
 import { GithubIcon } from '../icons';
 import {Checkbox} from "@nextui-org/checkbox";
 import { Toaster, toast } from 'sonner'
-import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/dist/components';
+
+import { LoginLink, LogoutLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/dist/components';
 const Satoshi = localFont({
   src: './Satoshi.otf',
   display: 'swap',
@@ -27,12 +30,28 @@ export const  LoginButton = () => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const [isSelected, setIsSelected] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const router = useRouter()
+  const [authStatus, setAuthStatus] = useState(null);
+
+  const checkApi = async () => {
+    try {
+      const response = await fetch('/api/verify');
+      const data = await response.json();
+
+      // Assuming the API response has a property "auth"
+      setAuthStatus(data.auth);
+    } catch (error) {
+      console.error('Error fetching API:', error);
+    }
+  };  
+ 
   const forMobile = "inside"
   const forPc = "outside"
 
   function Login(){
     if (isSelected == false){
-        toast.error('Automatically agreed the privacy and policy, any issues: /help')
+        toast.error('You need to agree the terms and conditions')
+        router.refresh();
 
     }
     else {
@@ -42,7 +61,8 @@ export const  LoginButton = () => {
 
   function Register(){
     if (isSelected == false){
-        toast.error('Automatically agreed the privacy and policy, any issues: /help')
+      toast.error('You need to agree the terms and conditions')
+      router.refresh();
 
     }
     else {
@@ -62,10 +82,37 @@ export const  LoginButton = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  const renderUI = () => {
+    if (authStatus === null) {
+      // API call not made yet
+      return <Button className={buttonStyles({ color: "warning", radius: "sm", variant: "bordered" })} isDisabled >Loading</Button>;
+    } else if (authStatus === 'true') {
+      // Display UI for authenticated response
+        toast.error("Sorry the dashboard page is not ready.")
+      return (
+        <>
+        
+        <LogoutLink className={buttonStyles({ color: "warning", radius: "sm", variant: "bordered" })}  >Log out</LogoutLink>;
+        </>
+      )
+    } else {
+      // Display UI for unauthenticated response
+      return (
+        <> <LoginLink className={buttonStyles({ color: "warning", radius: "sm", variant: "bordered" })} onClick={Login}>
+        Login
+      </LoginLink>
+      <RegisterLink className={buttonStyles({ color: "secondary",  variant: "ghost" })} onClick={Register}>
+        Create account
+      </RegisterLink></>
+      )
+    }
+  };
+
+
   return (
     <div>
       <Toaster richColors  />
-            <Button className={buttonStyles({ color: "secondary", radius: "full", variant: "ghost" })} onPress={onOpen}> <GithubIcon/> Join</Button>
+            <Button onClick={checkApi} className={buttonStyles({ color: "secondary", radius: "full", variant: "ghost" })} onPress={onOpen}> <GithubIcon/> Join</Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement='auto'  scrollBehavior={isMobile ? 'inside' : 'outside'}>
         <ModalContent>
           {(onClose) => (
@@ -93,12 +140,8 @@ We take reasonable steps to protect your personal information from unauthorized 
 
               </ModalBody>
               <ModalFooter>
-                <LoginLink className={buttonStyles({ color: "warning", radius: "sm", variant: "bordered" })} onClick={Login}>
-                  Login
-                </LoginLink>
-                <RegisterLink className={buttonStyles({ color: "secondary",  variant: "ghost" })} onClick={Register}>
-                  Create account
-                </RegisterLink>
+              {renderUI()}
+               
               </ModalFooter>
             </>
           )}
