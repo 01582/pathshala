@@ -97,11 +97,9 @@ export default function Home() {
  
 	const texts = ['Light', 'Spectrum', 'Quantization'];
   const [currentText, setCurrentText] = useState(texts[0]);
-  const [isLoaded, setIsLoaded] = React.useState(false);
+
   const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
-  const toggleLoad = () => {
-    setIsLoaded(true)
-  };
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       // Change the text every 5 seconds
@@ -212,7 +210,7 @@ export default function Home() {
           height: 300,
         }}/>
          <Card className="w-[200px] space-y-5 p-4" radius="lg">
-        <Skeleton isLoaded={isLoaded} className="rounded-lg">
+        <Skeleton className="rounded-lg">
           <div className="h-24 w-full rounded-lg ">
           <Image
             src="/dd.jpg"
@@ -221,7 +219,7 @@ export default function Home() {
           </div>
         </Skeleton>
         <div className="space-y-3">
-          <Skeleton isLoaded={isLoaded} className="rounded-md ">
+          <Skeleton className="rounded-md ">
             
               <div className="antialiased bg-transparent">
                 <h1 style={Caveat.style}  className="selection-none">ThePathShala -2022</h1>
@@ -230,7 +228,7 @@ export default function Home() {
         
           </Skeleton>
           
-          <Skeleton isLoaded={isLoaded} className=" bg-stone-50">
+          <Skeleton className=" bg-stone-50">
             <div className=" w-full ">
             <Textarea
       isReadOnly
@@ -244,26 +242,18 @@ export default function Home() {
           </Skeleton>
 
      </div>
-     <Dropdown >
-      <DropdownTrigger>
+ 
         <Button 
           variant="bordered" 
-          onFocus={toggleLoad}
+          startContent={  <EditDocumentIcon className={iconClasses}/>}
         >
 
-          {isLoaded ? "More" : "Your Notes"}
+          Edit
 
         </Button>
-      </DropdownTrigger>
-      <DropdownMenu aria-label="Static Actions" disabledKeys={["edit", "delete"]}>
-        <DropdownItem  startContent={<GithubIcon className={iconClasses}/>} key="login">Join</DropdownItem>
-       
-        <DropdownItem startContent={<EditDocumentIcon className={iconClasses}/>} key="edit">Edit content</DropdownItem>
-        <DropdownItem  startContent={<DeleteDocumentIcon className={iconClasses} />} key="delete" className="text-danger" color="danger">
-          Delete content
-        </DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
+    
+
+    
      
      </Card>
 
