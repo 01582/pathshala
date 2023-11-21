@@ -97,9 +97,11 @@ export default function Home() {
  
 	const texts = ['Light', 'Spectrum', 'Quantization'];
   const [currentText, setCurrentText] = useState(texts[0]);
-
+  const [isLoaded, setIsLoaded] = React.useState(true);
   const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
-
+  const toggleLoad = () => {
+    setIsLoaded(true)
+  };
   useEffect(() => {
     const intervalId = setInterval(() => {
       // Change the text every 5 seconds
@@ -210,7 +212,7 @@ export default function Home() {
           height: 300,
         }}/>
          <Card className="w-[200px] space-y-5 p-4" radius="lg">
-        <Skeleton className="rounded-lg">
+        <Skeleton  isLoaded={isLoaded} className="rounded-lg">
           <div className="h-24 w-full rounded-lg ">
           <Image
             src="/dd.jpg"
@@ -219,7 +221,7 @@ export default function Home() {
           </div>
         </Skeleton>
         <div className="space-y-3">
-          <Skeleton className="rounded-md ">
+          <Skeleton isLoaded={isLoaded} className="rounded-md ">
             
               <div className="antialiased bg-transparent">
                 <h1 style={Caveat.style}  className="selection-none">ThePathShala -2022</h1>
@@ -228,7 +230,7 @@ export default function Home() {
         
           </Skeleton>
           
-          <Skeleton className=" bg-stone-50">
+          <Skeleton  isLoaded={isLoaded} className=" bg-stone-50">
             <div className=" w-full ">
             <Textarea
       isReadOnly
