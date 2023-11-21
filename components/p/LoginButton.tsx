@@ -35,7 +35,7 @@ export const  LoginButton = () => {
 
   const checkApi = async () => {
     try {
-      const response = await fetch('/api/verify');
+      const response = await fetch('https://thepathshala.vercel.app/api/verify');
       const data = await response.json();
 
       // Assuming the API response has a property "auth"
