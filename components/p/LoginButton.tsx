@@ -83,10 +83,7 @@ export const  LoginButton = () => {
     };
   }, []);
   const renderUI = () => {
-    if (authStatus === null) {
-      // API call not made yet
-      return <Button className={buttonStyles({ color: "warning", radius: "sm", variant: "bordered" })} isDisabled >Loading</Button>;
-    } else if (authStatus === 'true') {
+     if (authStatus === 'true') {
       // Display UI for authenticated response
         toast.error("Sorry the dashboard page is not ready.")
       return (
