@@ -11,7 +11,8 @@ import { useState, useEffect } from 'react';
 import { GithubIcon } from '../icons';
 import {Checkbox} from "@nextui-org/checkbox";
 import { Toaster, toast } from 'sonner'
-
+import axios from 'axios'
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/dist/server';
 import { LoginLink, LogoutLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/dist/components';
 const Satoshi = localFont({
   src: './Satoshi.otf',
@@ -26,25 +27,20 @@ const Satoshi = localFont({
   
 
 export const  LoginButton = () => {
-
+ 
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const [isSelected, setIsSelected] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter()
-  const [authStatus, setAuthStatus] = useState(null);
+  const [authStatus, setAuthStatus] =  useState(false)
+  function checkAuth() {
+  axios.get('/api/verify').then(response => {
+    console.log(response.data.auth);
+    setAuthStatus(response.data.auth)
+  });
+  
+  }
 
-  const checkApi = async () => {
-    try {
-      const response = await fetch('https://thepathshala.vercel.app/api/verify');
-      const data = await response.json();
-
-      // Assuming the API response has a property "auth"
-      setAuthStatus(data.auth);
-    } catch (error) {
-      console.error('Error fetching API:', error);
-    }
-  };  
- 
   const forMobile = "inside"
   const forPc = "outside"
 
@@ -69,6 +65,7 @@ export const  LoginButton = () => {
         toast.success('Register with Kinde')
     }
   }
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768); // You can adjust the breakpoint as needed
@@ -82,9 +79,11 @@ export const  LoginButton = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  console.log(authStatus)
   const renderUI = () => {
-     if (authStatus === 'true') {
+     if (authStatus === true) {
       // Display UI for authenticated response
+      
         toast.error("Sorry the dashboard page is not ready.")
       return (
         <>
@@ -109,7 +108,8 @@ export const  LoginButton = () => {
   return (
     <div>
       <Toaster richColors  />
-            <Button onClick={checkApi} className={buttonStyles({ color: "secondary", radius: "full", variant: "ghost" })} onPress={onOpen}> <GithubIcon/> Join</Button>
+      <Button onClick={checkAuth}>try</Button>
+            <Button  className={buttonStyles({ color: "secondary", radius: "full", variant: "ghost" })} onPress={onOpen}> <GithubIcon/> Join</Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement='auto'  scrollBehavior={isMobile ? 'inside' : 'outside'}>
         <ModalContent>
           {(onClose) => (

@@ -59,7 +59,7 @@ const WorkSans = Work_Sans({
     display: 'swap'
   })
 export default function Home() {
-
+  
   const [currentSVG, setCurrentSVG] = useState(0);
   const svgs = [
   (  <svg key="1" className="w-[109px] text-yankeesBlue" height="26" viewBox="0 0 109 26" width="109">
