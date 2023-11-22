@@ -34,6 +34,8 @@ export const  LoginButton = () => {
   const router = useRouter()
   const [authStatus, setAuthStatus] =  useState(false)
   function checkAuth() {
+    onOpen();
+    toast.warning("Please scroll down and accept agree with the policy")
   axios.get('/api/verify').then(response => {
     console.log(response.data.auth);
     setAuthStatus(response.data.auth)
@@ -108,8 +110,8 @@ export const  LoginButton = () => {
   return (
     <div>
       <Toaster richColors  />
-      <Button onClick={checkAuth}>try</Button>
-            <Button  className={buttonStyles({ color: "secondary", radius: "full", variant: "ghost" })} onPress={onOpen}> <GithubIcon/> Join</Button>
+     
+            <Button className={buttonStyles({ color: "secondary", radius: "full", variant: "ghost" })} onPress={checkAuth}> <GithubIcon/> Join</Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement='auto'  scrollBehavior={isMobile ? 'inside' : 'outside'}>
         <ModalContent>
           {(onClose) => (
