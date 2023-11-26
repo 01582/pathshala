@@ -1,1 +1,6 @@
-𝙎𝙊𝙊𝙉
+# THE PATHSHALA
+
+ENV
+```bash
+    UTOKEN= ""
+    ```

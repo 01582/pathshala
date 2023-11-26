@@ -32,10 +32,10 @@ export const  LoginButton = () => {
   const [isSelected, setIsSelected] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter()
-  const [authStatus, setAuthStatus] =  useState(false)
+  const [authStatus, setAuthStatus] =  useState('')
   function checkAuth() {
     onOpen();
-    toast.warning("Please scroll down and accept agree with the policy")
+    
   axios.get('/api/verify').then(response => {
     console.log(response.data.auth);
     setAuthStatus(response.data.auth)
@@ -48,7 +48,7 @@ export const  LoginButton = () => {
 
   function Login(){
     if (isSelected == false){
-        toast.error('You need to agree the terms and conditions')
+        
         router.refresh();
 
     }
@@ -83,7 +83,7 @@ export const  LoginButton = () => {
   }, []);
   console.log(authStatus)
   const renderUI = () => {
-     if (authStatus === true) {
+     if (authStatus === 'true') {
       // Display UI for authenticated response
       
         toast.error("Sorry the dashboard page is not ready.")
