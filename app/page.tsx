@@ -222,7 +222,7 @@ export default function Home() {
 			return (
         
         <div className="flex flex-col gap-3">
-          <div aria-hidden className="verticalFade" data-side={top} style={{
+          <div aria-hidden className="verticalFade topv"  style={{
           height: 300,
         }}/>
          <Card className="w-[200px] space-y-5 p-4" radius="lg">
@@ -361,7 +361,7 @@ export default function Home() {
     }
 	return (
    <main>
-     <div aria-hidden className="verticalFade topv" data-side={top} style={{
+     <div aria-hidden className="verticalFade topv"  style={{
           height: 100,
         }}/>
        <Toaster  richColors/>
