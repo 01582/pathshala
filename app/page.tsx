@@ -245,7 +245,7 @@ export default function Home() {
           </Skeleton>
           
           <Skeleton  isLoaded={isLoaded} className=" bg-stone-50">
-            <div className=" w-full ">
+            <div className=" w-full  ">
             <Textarea
       isReadOnly
       variant="bordered"
@@ -286,9 +286,10 @@ export default function Home() {
         </span> WITH </h1></div>
         <br></br>
        <div className="overflow-hidden whitespace-nowrap flex-wrap items-center justify-center gap-x-10 gap-y-6 md:flex">
-          <h1  className="hover:backdrop-blur-md" style={Satoshi.style}>1. Kinde</h1>
-          <h1 style={Satoshi.style}>2. Apace Kafka</h1>
-          <h3 style={Pixel.style}>3. Redis</h3>
+          <h1  className="hover:backdrop-blur-md md:text-sm " style={Satoshi.style}>Kinde</h1>
+          <h1 style={Satoshi.style}>Kafka</h1>
+         
+          <h3  className="md:text-sm" style={Pixel.style}>TinyBird</h3>
           <h4>  </h4>
        </div>
 
@@ -360,6 +361,9 @@ export default function Home() {
     }
 	return (
    <main>
+     <div aria-hidden className="verticalFade topv" data-side={top} style={{
+          height: 100,
+        }}/>
        <Toaster  richColors/>
 		<section className="scroll-smooth flex flex-col items-center justify-center gap-4 py-8 md:py-10">
          

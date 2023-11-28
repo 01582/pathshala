@@ -12,7 +12,7 @@ module.exports = {
   
     extend: {
       
-      
+   
       animation: {
         cursor: 'cursor .6s linear infinite alternate',
         type: 'type 1.8s ease-out .8s 1 normal both',
@@ -24,6 +24,7 @@ module.exports = {
 				"fade-right": "fade-right 3s ease-in-out forwards",
         backanim: "backanim 7s infinite"
 			},
+   
       keyframes: {
         type: {
           '0%': { width: '0ch' },
@@ -54,7 +55,8 @@ module.exports = {
           "100": {
             transform: "   translate(0px, 0px) scale(1)"
           }
-        }
+        },
+    
       },
 
     },

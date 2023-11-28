@@ -145,6 +145,10 @@ border-radius: 5px;
     mask-image: linear-gradient(to top, var(--gray1) 25%, transparent);
   }
 }
+.topv{
+  background: linear-gradient(to top, transparent, var(--gray1));
+  mask-image: linear-gradient(to bottom, var(--gray1) 25%, transparent);
+}
 .powered {
  font-size: 58x;
  backdrop-filter: blur(4px);
