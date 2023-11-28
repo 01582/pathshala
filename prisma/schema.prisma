@@ -12,9 +12,8 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
+  token String @id @default(uuid())
   name String
   class Float
-  token String
   createdAt DateTime @default(now())
 }
